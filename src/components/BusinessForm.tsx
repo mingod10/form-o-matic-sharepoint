@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { toast } from "sonner";
@@ -85,13 +84,6 @@ const BusinessForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="form-container">
-      <h1 className="text-3xl font-bold text-center text-form-heading mb-2 animate-slide-down">
-        Formulario de Afiliación de Comercios
-      </h1>
-      <p className="text-lg text-center text-form-text mb-8 animate-slide-down">
-        Por favor proporcione todos los detalles requeridos para registrar su negocio con nosotros
-      </p>
-      
       <div className="text-center mb-8 animate-fade-in">
         <p className="text-red-500 font-medium">
           Todos los campos marcados con * son requeridos y deben ser llenados.
