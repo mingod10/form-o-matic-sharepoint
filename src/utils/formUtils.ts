@@ -1,7 +1,12 @@
-
 import { toast } from "sonner";
 import { v4 as uuidv4 } from "uuid";
-import { Contact, Branch, BusinessFormData } from "@/types/form";
+import { Contact, Branch, BusinessFormData, MerchantID } from "@/types/form";
+
+export const createEmptyMerchantID = (): MerchantID => ({
+  id: uuidv4(),
+  merchantId: "",
+  bank: ""
+});
 
 export const createEmptyContact = (): Contact => ({
   id: uuidv4(),
@@ -16,7 +21,9 @@ export const createEmptyBranch = (): Branch => ({
   id: uuidv4(),
   name: "",
   address: "",
-  province: ""
+  province: "",
+  googleMapsUrl: "",
+  merchantIds: [createEmptyMerchantID()]
 });
 
 export const createEmptyFormData = (): BusinessFormData => ({
@@ -73,7 +80,7 @@ export const validateFormData = (formData: BusinessFormData): string[] => {
   );
   if (!hasValidContact) errors.push("Al menos un contacto completo es requerido");
 
-  // Validate at least one branch
+  // Validate at least one branch with required fields
   const hasValidBranch = formData.branches.some(
     branch => branch.name && branch.address && branch.province
   );

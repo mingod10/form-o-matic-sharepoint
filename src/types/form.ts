@@ -1,4 +1,3 @@
-
 export interface Contact {
   id: string;
   firstName: string;
@@ -8,11 +7,19 @@ export interface Contact {
   phone: string;
 }
 
+export interface MerchantID {
+  id: string;
+  merchantId: string;
+  bank: string;
+}
+
 export interface Branch {
   id: string;
   name: string;
   address: string;
   province: string;
+  googleMapsUrl: string;
+  merchantIds: MerchantID[];
 }
 
 export interface BusinessFormData {
@@ -68,4 +75,16 @@ export const PROVINCE_OPTIONS = [
   "Panamá",
   "Panamá Oeste",
   "Veraguas"
+];
+
+export const BANK_OPTIONS = [
+  "Banco General",
+  "Banco Nacional de Panamá",
+  "Banistmo",
+  "Multibank",
+  "BAC Credomatic",
+  "Scotiabank",
+  "Banco Aliado",
+  "Global Bank",
+  "Banesco"
 ];
