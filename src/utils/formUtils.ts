@@ -1,3 +1,4 @@
+
 import { toast } from "sonner";
 import { v4 as uuidv4 } from "uuid";
 import { Contact, Branch, BusinessFormData, MerchantID } from "@/types/form";
@@ -32,6 +33,9 @@ export const createEmptyFormData = (): BusinessFormData => ({
   ruc: "",
   dv: "",
   telefono: "",
+  representanteLegalNombre: "",
+  representanteLegalApellido: "",
+  representanteLegalCedula: "",
   direccion1: "",
   direccion2: "",
   ciudad: "",
@@ -60,6 +64,9 @@ export const validateFormData = (formData: BusinessFormData): string[] => {
   if (!formData.ruc) errors.push("RUC es requerido");
   if (!formData.dv) errors.push("DV es requerido");
   if (!formData.telefono) errors.push("Teléfono es requerido");
+  if (!formData.representanteLegalNombre) errors.push("Nombre del Representante Legal es requerido");
+  if (!formData.representanteLegalApellido) errors.push("Apellido del Representante Legal es requerido");
+  if (!formData.representanteLegalCedula) errors.push("Cédula del Representante Legal es requerida");
   if (!formData.direccion1) errors.push("Dirección es requerida");
   if (!formData.ciudad) errors.push("Ciudad es requerida");
   if (!formData.provincia) errors.push("Provincia es requerida");

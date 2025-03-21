@@ -1,3 +1,4 @@
+
 export interface Contact {
   id: string;
   firstName: string;
@@ -28,6 +29,9 @@ export interface BusinessFormData {
   ruc: string;
   dv: string;
   telefono: string;
+  representanteLegalNombre: string;
+  representanteLegalApellido: string;
+  representanteLegalCedula: string;
   direccion1: string;
   direccion2: string;
   ciudad: string;

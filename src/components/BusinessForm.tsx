@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { toast } from "sonner";
@@ -167,6 +168,54 @@ const BusinessForm = () => {
               placeholder="(000) 000-0000"
               required
             />
+          </div>
+        </div>
+        
+        {/* Representante Legal */}
+        <div className="mt-8">
+          <h3 className="text-lg font-semibold mb-4">Representante Legal</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="space-y-2">
+              <Label htmlFor="representanteLegalNombre">
+                Nombre <span className="required-asterisk">*</span>
+              </Label>
+              <Input
+                id="representanteLegalNombre"
+                name="representanteLegalNombre"
+                value={formData.representanteLegalNombre}
+                onChange={handleChange}
+                className="form-input"
+                required
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <Label htmlFor="representanteLegalApellido">
+                Apellido <span className="required-asterisk">*</span>
+              </Label>
+              <Input
+                id="representanteLegalApellido"
+                name="representanteLegalApellido"
+                value={formData.representanteLegalApellido}
+                onChange={handleChange}
+                className="form-input"
+                required
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <Label htmlFor="representanteLegalCedula">
+                Cédula <span className="required-asterisk">*</span>
+              </Label>
+              <Input
+                id="representanteLegalCedula"
+                name="representanteLegalCedula"
+                value={formData.representanteLegalCedula}
+                onChange={handleChange}
+                className="form-input"
+                required
+              />
+            </div>
           </div>
         </div>
       </div>
