@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import { toast } from "sonner";
 import { 
@@ -23,6 +24,7 @@ import ContactSection from "./ContactSection";
 import BranchSection from "./BranchSection";
 
 const BusinessForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState<BusinessFormData>(createEmptyFormData());
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -69,16 +71,16 @@ const BusinessForm = () => {
         setSubmitSuccess(true);
         toast.success("Formulario enviado exitosamente");
         
-        // Reset form after 2 seconds
+        // After successful submission, navigate to documents upload page
         setTimeout(() => {
-          setFormData(createEmptyFormData());
-          setSubmitSuccess(false);
-        }, 2000);
+          // Generate a unique business ID from form data
+          const businessId = `${formData.ruc}-${formData.dv}`;
+          navigate("/documents-upload", { state: { businessId } });
+        }, 1500);
       }
     } catch (error) {
       console.error("Error submitting form:", error);
       toast.error("Error al enviar el formulario");
-    } finally {
       setIsSubmitting(false);
     }
   };
